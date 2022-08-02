@@ -3,6 +3,9 @@
     <div id="items-<%= item.id %>">
       <ul>
         <li><%= item.name %> - <%= number_to_currency(item.price.fdiv(100)) %></li>
+        <p> Belongs to <%= @customer.supermarket.name %></p>
       </ul>
     </div>
 <% end %>
+
+<h3>Cart Total - <%= number_to_currency(@customer.items.total_price.fdiv(100)) %></h3>

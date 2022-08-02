@@ -1,0 +1,8 @@
+<h1><%= @customer.supermarket.name %> Customer - <%= @customer.name %></h1>
+<% @customer.items.each do |item| %>
+    <div id="items-<%= item.id %>">
+      <ul>
+        <li><%= item.name %> - <%= number_to_currency(item.price.fdiv(100)) %></li>
+      </ul>
+    </div>
+<% end %>

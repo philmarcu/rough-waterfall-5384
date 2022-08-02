@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_02_124403) do
+ActiveRecord::Schema.define(version: 2022_08_02_135821) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,13 @@ ActiveRecord::Schema.define(version: 2022_08_02_124403) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "supermarket_items", force: :cascade do |t|
+    t.bigint "item_id"
+    t.bigint "supermarket_id"
+    t.index ["item_id"], name: "index_supermarket_items_on_item_id"
+    t.index ["supermarket_id"], name: "index_supermarket_items_on_supermarket_id"
+  end
+
   create_table "supermarkets", force: :cascade do |t|
     t.string "name"
     t.string "location"
@@ -47,4 +54,6 @@ ActiveRecord::Schema.define(version: 2022_08_02_124403) do
   add_foreign_key "customer_items", "customers"
   add_foreign_key "customer_items", "items"
   add_foreign_key "customers", "supermarkets"
+  add_foreign_key "supermarket_items", "items"
+  add_foreign_key "supermarket_items", "supermarkets"
 end

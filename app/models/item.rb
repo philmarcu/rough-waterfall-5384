@@ -6,4 +6,8 @@ class Item < ApplicationRecord
   def self.total_price
     sum(:price)
   end
+
+  def self.unique
+    select("DISTINCT ON(items.name) items.*")
+  end
 end

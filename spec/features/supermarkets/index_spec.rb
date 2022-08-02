@@ -28,3 +28,5 @@ RSpec.describe 'supermarket index page' do
     end
   end
 end
+
+# not sure how to set up test to show only unique name showing on feature page - have model test though

@@ -1,6 +1,6 @@
 <h1><%= @supermarket.name %> Index Page</h1>
 
-<% index = @supermarket.items.to_a.uniq {|item| item} %>
+<% index = @supermarket.items.unique %>
 <% index.each do |item| %>
     <div id="items-<%= item.id %>">
       <ol>
@@ -8,5 +8,3 @@
       </ol>
     </div>
 <% end %>
-
-# attempts to get unique items, not sure how
